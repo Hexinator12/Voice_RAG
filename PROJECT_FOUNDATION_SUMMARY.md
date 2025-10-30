@@ -132,18 +132,31 @@ Test 2: Recording + Transcription
 
 **Key Capabilities**:
 - **Intent-based Responses**: Different response templates for each intent type
-- **Context Awareness**: Provides specific information based on user context
+- **Time-Aware Greetings**: Dynamic greetings based on current time of day (morning/afternoon/evening)
+- **Randomized Dynamic Responses**: Multiple response options to prevent repetitive interactions
+- **Context-Aware Follow-ups**: Dynamic follow-up questions based on intent and time context
+- **Natural Language Flow**: Enhanced conversational responses with varied phrasing
 - **Campus Knowledge Base**: Built-in information about campus facilities
 - **Response Personalization**: Dynamic response generation with follow-up suggestions
 - **Error Handling**: Graceful fallback responses for unclear inputs
 
+**Enhanced Features (Latest Update)**:
+- **Time Detection**: `get_time_of_day()` method determines morning (5 AM - 12 PM), afternoon (12 PM - 5 PM), or evening (5 PM - 5 AM)
+- **Time-Aware Greeting Templates**: 4 unique responses for each time period with contextual phrases
+- **Dynamic Follow-up Generation**: `generate_dynamic_follow_up()` creates contextually appropriate follow-ups
+- **Expanded Response Options**: General inquiry responses increased from 4 to 8 varied options
+- **Contextual Response Selection**: Responses adapt to time of day and user intent
+- **Natural Conversation Flow**: More engaging and human-like interaction patterns
+
 **Response Templates**:
+- **Time-Aware Greetings**: Morning/afternoon/evening specific greetings with contextual follow-ups
 - **Greeting**: Welcome messages and introduction
 - **Library Inquiry**: Library location, hours, and services
 - **Academic Inquiry**: Class schedules, professor information
 - **Dining Inquiry**: Cafeteria locations, hours, menu options
 - **Event Inquiry**: Campus events and activities
 - **Help Request**: General assistance and guidance
+- **General Inquiry**: Expanded with 8 varied, conversational responses
 
 **Campus Information Database**:
 ```json
@@ -161,19 +174,31 @@ Test 2: Recording + Transcription
 }
 ```
 
-**Test Results**:
+**Test Results (Latest)**:
 ```
-Input: "hello"
-Response: "Hey! I'm your virtual campus assistant. Ask me anything!"
-Follow-up: "Feel free to ask about locations, events, classes, or anything else campus-related."
-Intent: greeting
-Confidence: 0.95
+Time-Aware Greeting Test (Morning):
+- Time of day: morning
+- Response: "Good morning! I'm your campus assistant. How are you doing today?"
+- Follow-up: "Looking for a good study spot this morning? I can suggest some great places!"
+- Intent: greeting
+- Confidence: 0.95
 
-Input: "where is the library"
-Response: "I can help you with library information! The main library is located at the center of campus. It's located at Main Campus Building A and is open 8:00 AM - 10:00 PM (Monday-Friday), 10:00 AM - 6:00 PM (Weekends)."
-Follow-up: "Would you like to know about library hours, specific resources, or study spaces?"
-Intent: library_inquiry
-Confidence: 0.8
+General Inquiry Test:
+- Response: "I'm here to assist you with campus information. What would you like to know?"
+- Follow-up: "What would you like to know about campus this morning?"
+- Intent: general_inquiry
+- Confidence: 0.8
+
+Library Inquiry Test:
+- Response: "The library offers various resources including books, study spaces, and computer labs. It's located at Main Campus Building A and is open 8:00 AM - 10:00 PM (Monday-Friday), 10:00 AM - 6:00 PM (Weekends)."
+- Follow-up: "Would you like to know about library hours, study spaces, or morning availability?"
+- Intent: library_inquiry
+- Confidence: 0.9
+
+Dynamic Response Variation Test:
+- Multiple test runs show different response selections
+- Follow-up questions change based on time of day and intent
+- Natural language flow maintained across all interactions
 ```
 
 ---
@@ -227,13 +252,14 @@ curl -X POST -H "Content-Type: application/json" \
 
 ## 📊 Current Status and Progress
 
-### Completed Tasks (6/17 - 35.3%):
+### Completed Tasks (7/17 - 41.2%):
 - ✅ Set up Python virtual environment and install dependencies
 - ✅ Fix faiss-cpu version compatibility issues
 - ✅ Resolve package installation conflicts and errors
 - ✅ Test all package imports successfully
 - ✅ Create Flask backend structure with basic API endpoints
 - ✅ Implement voice input capture and speech-to-text conversion (ENHANCED)
+- ✅ Enhance response generator with time-aware greetings and dynamic responses
 
 **In Progress**:
 - 🔄 Add text input support alongside voice input
@@ -252,11 +278,11 @@ curl -X POST -H "Content-Type: application/json" \
 
 **Latest Achievement**:
 - 🎤 Enhanced voice processor with voice activation, silence detection, and extended recording duration
+- 🤖 Enhanced response generator with time-aware greetings, randomized responses, and dynamic follow-ups
 - 📊 Improved user experience with real-time feedback and smart recording features
 - 🎯 Successfully tested with 95% transcription accuracy on campus-related queries
-- ⏳ Enhanced voice processing (next phase)
-- ⏳ RAG system integration (future phase)
-- ⏳ LLM integration (future phase)
+- ⏰ Time-aware interaction system providing contextually appropriate responses
+- 🔄 Natural conversation flow with varied and engaging response patterns
 
 ### Technology Stack:
 - **Backend**: Flask (Python)
@@ -296,8 +322,17 @@ curl -X POST -H "Content-Type: application/json" \
 ### Component Testing Results:
 - **Text Processor**: ✅ All tests passed (5/5 test cases)
 - **Voice Processor**: ✅ Recording and transcription working (3/3 successful tests)
-- **Response Generator**: ✅ All intent categories tested (4/4 test cases)
+- **Response Generator**: ✅ All intent categories tested (4/4 test cases) + Enhanced features verified
+- **Enhanced Response Features**: ✅ Time-aware greetings, dynamic responses, and follow-ups tested
 - **API Endpoints**: ✅ Health check and text input verified
+
+### Enhanced Response Generator Tests:
+- **Time Detection**: ✅ Morning/afternoon/evening detection working correctly
+- **Time-Aware Greetings**: ✅ Contextual greetings generated based on current time
+- **Randomized Responses**: ✅ Multiple response options prevent repetitive interactions
+- **Dynamic Follow-ups**: ✅ Context-aware follow-up questions based on intent and time
+- **Natural Language Flow**: ✅ Engaging and varied conversation patterns maintained
+- **Response Variation**: ✅ Different responses generated across multiple test runs
 
 ### System Integration Tests:
 - ✅ Flask server startup and accessibility

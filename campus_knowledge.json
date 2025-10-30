@@ -1,0 +1,319 @@
+{
+  "campus_info": {
+    "name": "Tech University",
+    "address": "123 University Ave, Tech City, TC 12345",
+    "phone": "(555) 123-4567",
+    "website": "https://www.techuniversity.edu",
+    "description": "A leading technology university focused on innovation and research."
+  },
+  "buildings": {
+    "science_&_engineering_building": {
+      "name": "Science & Engineering Building",
+      "code": "SEB",
+      "address": "456 Innovation Dr",
+      "floors": 5,
+      "departments": [
+        "Computer Science",
+        "Engineering",
+        "Physics"
+      ],
+      "services": [
+        "Computer Labs",
+        "Research Labs",
+        "Study Rooms"
+      ],
+      "hours": "7:00 AM - 10:00 PM (Monday-Friday), 8:00 AM - 6:00 PM (Weekends)",
+      "description": "Main building for science and engineering departments with state-of-the-art facilities.",
+      "image_url": "",
+      "coordinates": {
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      "accessibility": {},
+      "last_updated": "2025-09-26T06:38:15.690323"
+    },
+    "student_center": {
+      "name": "Student Center",
+      "code": "SC",
+      "address": "789 Campus Blvd",
+      "floors": 3,
+      "departments": [
+        "Student Affairs",
+        "Career Services"
+      ],
+      "services": [
+        "Cafeteria",
+        "Bookstore",
+        "Student Lounge",
+        "Game Room"
+      ],
+      "hours": "6:00 AM - 11:00 PM (Daily)",
+      "description": "Central hub for student activities and services.",
+      "image_url": "",
+      "coordinates": {
+        "lat": 40.7129,
+        "lng": -74.0061
+      },
+      "accessibility": {},
+      "last_updated": "2025-09-26T06:38:15.690813"
+    }
+  },
+  "departments": {},
+  "services": {
+    "library_services": {
+      "name": "Library Services",
+      "description": "Comprehensive library services including book lending, research assistance, and study spaces.",
+      "type": "academic",
+      "location": "Main Library",
+      "building": "Library Building",
+      "hours": "8:00 AM - 10:00 PM (Monday-Friday), 10:00 AM - 6:00 PM (Weekends)",
+      "phone": "(555) 123-4568",
+      "email": "library@techuniversity.edu",
+      "website": "https://library.techuniversity.edu",
+      "cost": 0,
+      "requirements": [
+        "Student ID"
+      ],
+      "providers": [],
+      "appointment_required": false,
+      "accessibility": {},
+      "tags": [
+        "library",
+        "study",
+        "research",
+        "books"
+      ],
+      "image_url": "",
+      "available_to": "all",
+      "last_updated": "2025-09-26T06:38:15.692814"
+    },
+    "health_center": {
+      "name": "Health Center",
+      "description": "Medical services and health counseling for students and staff.",
+      "type": "health",
+      "location": "Health Services Building",
+      "building": "Health Services",
+      "hours": "9:00 AM - 5:00 PM (Monday-Friday)",
+      "phone": "(555) 123-4569",
+      "email": "health@techuniversity.edu",
+      "website": "",
+      "cost": 0,
+      "requirements": [
+        "Student ID",
+        "Insurance Information"
+      ],
+      "providers": [],
+      "appointment_required": true,
+      "accessibility": {},
+      "tags": [
+        "health",
+        "medical",
+        "wellness",
+        "counseling"
+      ],
+      "image_url": "",
+      "available_to": "all",
+      "last_updated": "2025-09-26T06:38:15.693626"
+    },
+    "career_services": {
+      "name": "Career Services",
+      "description": "Career counseling, job search assistance, and internship opportunities.",
+      "type": "career",
+      "location": "Student Center, Room 205",
+      "building": "Student Center",
+      "hours": "9:00 AM - 5:00 PM (Monday-Friday)",
+      "phone": "(555) 123-4570",
+      "email": "careers@techuniversity.edu",
+      "website": "https://careers.techuniversity.edu",
+      "cost": 0,
+      "requirements": [
+        "Student ID",
+        "Resume"
+      ],
+      "providers": [],
+      "appointment_required": true,
+      "accessibility": {},
+      "tags": [
+        "career",
+        "jobs",
+        "internships",
+        "resume"
+      ],
+      "image_url": "",
+      "available_to": "students",
+      "last_updated": "2025-09-26T06:38:15.693960"
+    }
+  },
+  "events": {
+    "welcome_week_festival": {
+      "title": "Welcome Week Festival",
+      "description": "Join us for a week of fun activities to welcome new and returning students!",
+      "type": "social",
+      "date": "2025-10-03",
+      "time": "12:00 PM - 4:00 PM",
+      "location": "Main Quad",
+      "building": "Student Center",
+      "room": "",
+      "organizer": "Student Affairs",
+      "contact": "studentaffairs@techuniversity.edu",
+      "registration_required": false,
+      "capacity": 1000,
+      "attendees": 0,
+      "tags": [
+        "welcome",
+        "festival",
+        "social",
+        "new-students"
+      ],
+      "image_url": "",
+      "cost": 0,
+      "recurring": false,
+      "recurring_pattern": "",
+      "status": "upcoming",
+      "last_updated": "2025-09-26T06:38:15.691134"
+    },
+    "career_fair_2024": {
+      "title": "Career Fair 2024",
+      "description": "Meet with top employers and explore internship and job opportunities.",
+      "type": "academic",
+      "date": "2025-10-10",
+      "time": "10:00 AM - 3:00 PM",
+      "location": "Gymnasium",
+      "building": "Recreation Center",
+      "room": "",
+      "organizer": "Career Services",
+      "contact": "careers@techuniversity.edu",
+      "registration_required": true,
+      "capacity": 500,
+      "attendees": 0,
+      "tags": [
+        "career",
+        "jobs",
+        "internships",
+        "networking"
+      ],
+      "image_url": "",
+      "cost": 0,
+      "recurring": false,
+      "recurring_pattern": "",
+      "status": "upcoming",
+      "last_updated": "2025-09-26T06:38:15.691439"
+    },
+    "hackathon_2024": {
+      "title": "Hackathon 2024",
+      "description": "48-hour coding competition with prizes and networking opportunities.",
+      "type": "academic",
+      "date": "2025-10-17",
+      "time": "6:00 PM - 6:00 PM (next day)",
+      "location": "Computer Labs",
+      "building": "Science & Engineering Building",
+      "room": "",
+      "organizer": "Computer Science Club",
+      "contact": "hackathon@techuniversity.edu",
+      "registration_required": true,
+      "capacity": 200,
+      "attendees": 0,
+      "tags": [
+        "programming",
+        "competition",
+        "coding",
+        "technology"
+      ],
+      "image_url": "",
+      "cost": 25,
+      "recurring": false,
+      "recurring_pattern": "",
+      "status": "upcoming",
+      "last_updated": "2025-09-26T06:38:15.691717"
+    }
+  },
+  "clubs": {
+    "computer_science_club": {
+      "name": "Computer Science Club",
+      "description": "A club for students interested in computer science, programming, and technology.",
+      "type": "academic",
+      "category": "Technology",
+      "president": "John Doe",
+      "advisor": "Dr. Smith",
+      "email": "csclub@techuniversity.edu",
+      "phone": "",
+      "meeting_location": "SEB 301",
+      "meeting_time": "6:00 PM",
+      "meeting_frequency": "Every Thursday",
+      "member_count": 45,
+      "membership_fee": 20,
+      "website": "https://csclub.techuniversity.edu",
+      "social_media": {},
+      "tags": [
+        "programming",
+        "technology",
+        "coding",
+        "computer-science"
+      ],
+      "image_url": "",
+      "active": true,
+      "founded_date": "2020-09-01",
+      "last_updated": "2025-09-26T06:38:15.691983"
+    },
+    "photography_club": {
+      "name": "Photography Club",
+      "description": "For photography enthusiasts to share their work and learn new techniques.",
+      "type": "arts",
+      "category": "Arts & Media",
+      "president": "Jane Smith",
+      "advisor": "Prof. Johnson",
+      "email": "photoclub@techuniversity.edu",
+      "phone": "",
+      "meeting_location": "Arts Building 204",
+      "meeting_time": "5:00 PM",
+      "meeting_frequency": "Every Tuesday",
+      "member_count": 30,
+      "membership_fee": 15,
+      "website": "",
+      "social_media": {},
+      "tags": [
+        "photography",
+        "arts",
+        "media",
+        "creative"
+      ],
+      "image_url": "",
+      "active": true,
+      "founded_date": "2019-01-15",
+      "last_updated": "2025-09-26T06:38:15.692269"
+    },
+    "basketball_club": {
+      "name": "Basketball Club",
+      "description": "Competitive and recreational basketball for all skill levels.",
+      "type": "sports",
+      "category": "Sports & Recreation",
+      "president": "Mike Johnson",
+      "advisor": "Coach Williams",
+      "email": "basketball@techuniversity.edu",
+      "phone": "",
+      "meeting_location": "Gymnasium",
+      "meeting_time": "7:00 PM",
+      "meeting_frequency": "Every Monday and Wednesday",
+      "member_count": 25,
+      "membership_fee": 30,
+      "website": "",
+      "social_media": {},
+      "tags": [
+        "basketball",
+        "sports",
+        "fitness",
+        "team"
+      ],
+      "image_url": "",
+      "active": true,
+      "founded_date": "2018-09-01",
+      "last_updated": "2025-09-26T06:38:15.692538"
+    }
+  },
+  "courses": {},
+  "faculty": {},
+  "staff": {},
+  "policies": {},
+  "faqs": {},
+  "last_updated": "2025-09-26T06:38:15.694246"
+}

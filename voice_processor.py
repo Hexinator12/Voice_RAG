@@ -6,11 +6,23 @@ import os
 import numpy as np
 from datetime import datetime
 import logging
+import time
+from typing import Dict, Any
+from text_processor import TextProcessor
+from response_generator import ResponseGenerator
+import pyttsx3
 
 class VoiceProcessor:
     def __init__(self):
         self.recognizer = sr.Recognizer()
         self.microphone = sr.Microphone()
+        self.text_processor = TextProcessor()
+        self.response_generator = ResponseGenerator()
+        self.tts_engine = pyttsx3.init()
+        
+        # Configure TTS engine
+        self.tts_engine.setProperty('rate', 150)  # Speech rate
+        self.tts_engine.setProperty('volume', 0.9)  # Volume level
         
         # Configure recognizer settings
         self.recognizer.energy_threshold = 300
@@ -37,7 +49,143 @@ class VoiceProcessor:
         except Exception as e:
             self.logger.warning(f"⚠️ Microphone calibration failed: {e}")
     
-    def process_voice(self, audio_file_path):
+    def speak_response(self, text: str):
+        """
+        Convert text to speech and play it
+        
+        Args:
+            text (str): Text to speak
+        """
+        try:
+            self.logger.info("🔊 Speaking response...")
+            self.tts_engine.say(text)
+            self.tts_engine.runAndWait()
+            self.logger.info("✅ Response spoken successfully")
+        except Exception as e:
+            self.logger.error(f"❌ Error speaking response: {e}")
+    
+    def process_voice_with_response(self, audio_file_path: str) -> Dict[str, Any]:
+        """
+        Process voice input and generate a complete response
+        
+        Args:
+            audio_file_path (str): Path to the audio file
+            
+        Returns:
+            Dict: Complete response with transcription, processing, and generated response
+        """
+        try:
+            # Step 1: Transcribe voice to text
+            transcription_result = self.process_voice(audio_file_path)
+            
+            if transcription_result['status'] != 'success':
+                return {
+                    'status': 'error',
+                    'error': f'Transcription failed: {transcription_result["error"]}',
+                    'timestamp': datetime.now().isoformat()
+                }
+            
+            transcribed_text = transcription_result['transcribed_text']
+            confidence = transcription_result['confidence']
+            
+            # Step 2: Process the transcribed text
+            processed_text = self.text_processor.process_text(transcribed_text)
+            
+            # Step 3: Generate response
+            response_data = self.response_generator.generate_response(processed_text)
+            
+            # Step 4: Format response for voice
+            voice_response = self.response_generator.format_response_for_voice(response_data)
+            
+            return {
+                'status': 'success',
+                'transcription': {
+                    'text': transcribed_text,
+                    'confidence': confidence
+                },
+                'processed_text': processed_text,
+                'response': response_data,
+                'voice_response': voice_response,
+                'timestamp': datetime.now().isoformat()
+            }
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error in voice processing with response: {e}")
+            return {
+                'status': 'error',
+                'error': f'Error processing voice with response: {e}',
+                'timestamp': datetime.now().isoformat()
+            }
+    
+    def interactive_voice_chat(self):
+        """
+        Interactive voice chat - records, processes, and responds with voice
+        """
+        print("🎤 Interactive Voice Chat Started")
+        print("💡 Speak naturally and I'll respond with voice!")
+        print("🛑 Press Ctrl+C to stop\n")
+        
+        try:
+            while True:
+                print("\n🎙️  Listening... (Speak now)")
+                
+                # Record audio with voice activation
+                recording_result = self.record_audio(
+                    duration=15,
+                    silence_timeout=3.0,
+                    voice_activated=True
+                )
+                
+                if recording_result['status'] != 'success':
+                    print(f"❌ Recording failed: {recording_result['error']}")
+                    continue
+                
+                print(f"✅ Recording complete ({recording_result['duration']:.1f}s)")
+                
+                # Process voice and generate response
+                response_result = self.process_voice_with_response(recording_result['file_path'])
+                
+                if response_result['status'] == 'success':
+                    # Display text response
+                    print(f"\n🧠 You said: '{response_result['transcription']['text']}'")
+                    print(f"🎯 Intent: {response_result['processed_text']['intent']['primary_intent']}")
+                    print(f"💬 Response: {response_result['response']['response']}")
+                    
+                    # Speak the response
+                    self.speak_response(response_result['voice_response'])
+                    
+                    # Add a delay to prevent picking up the system's own voice
+                    time.sleep(1.0)  # 1 second delay
+                    
+                    # Wait for user confirmation before listening again
+                    input("\n🎤 Press Enter when you're ready to speak again...")
+                    
+                    # Show follow-up if available
+                    if response_result['response'].get('follow_up'):
+                        print(f"🔄 Follow-up: {response_result['response']['follow_up']}")
+                else:
+                    print(f"❌ Processing failed: {response_result['error']}")
+                    error_response = "I'm sorry, I couldn't process your request. Please try again."
+                    self.speak_response(error_response)
+                    
+                    # Add a delay even for error responses
+                    time.sleep(1.0)
+                    
+                    # Wait for user confirmation before listening again
+                    input("\n🎤 Press Enter when you're ready to speak again...")
+                
+                # Clean up temporary file
+                if os.path.exists(recording_result['file_path']):
+                    os.remove(recording_result['file_path'])
+                
+                print("\n" + "-" * 50)
+                
+        except KeyboardInterrupt:
+            print("\n🛑 Interactive voice chat stopped")
+        except Exception as e:
+            print(f"\n❌ Error in interactive voice chat: {e}")
+    
+    def process_voice(self, audio_file_path: str) -> Dict[str, Any]:
         """
         Process voice input from audio file
         
@@ -98,10 +246,10 @@ class VoiceProcessor:
                 }
                 
         except Exception as e:
-            self.logger.error(f"❌ Error processing voice input: {e}")
+            self.logger.error(f"❌ Error processing voice: {e}")
             return {
                 'status': 'error',
-                'error': f'Error processing voice input: {e}'
+                'error': f'Error processing voice: {e}'
             }
     
     def record_audio(self, duration=15, output_file=None, silence_timeout=3.0, voice_activated=True):
@@ -287,69 +435,104 @@ def test_voice_processor():
     print("🎤 Testing Enhanced Voice Processor Features")
     print("=" * 50)
     
-    # Test 1: Enhanced recording with voice activation
-    print("\n📝 Test 1: Voice-activated recording (10s max, 2s silence timeout)")
-    print("💡 This test will wait for you to speak, then record until silence...")
+    # Test 1: Interactive voice chat
+    print("\n📝 Test 1: Interactive Voice Chat")
+    print("💡 This test will start an interactive voice conversation.")
+    print("💬 Speak naturally and the system will respond with voice!")
+    print("🛑 Press Ctrl+C to stop the conversation.")
     
-    recording_result = processor.record_audio(
-        duration=10, 
-        silence_timeout=2.0, 
-        voice_activated=True
-    )
+    user_input = input("\n🤔 Do you want to start interactive voice chat? (y/n): ").lower().strip()
     
-    if recording_result['status'] == 'success':
-        print(f"✅ Enhanced recording successful!")
-        print(f"📁 File: {recording_result['file_path']}")
-        print(f"⏱️  Duration: {recording_result['duration']:.1f}s")
-        print(f"🔊 Voice activated: {recording_result['voice_activated']}")
-        print(f"🤫 Silence timeout: {recording_result['silence_timeout']}s")
-        print(f"📊 Chunks recorded: {recording_result['chunks_recorded']}")
+    if user_input == 'y' or user_input == 'yes':
+        processor.interactive_voice_chat()
+    else:
+        print("\n⏭️  Skipping interactive voice chat test.")
+    
+    # Test 2: Voice-activated recording with response
+    print("\n📝 Test 2: Voice-activated recording with response generation")
+    print("💡 This test will record your voice and generate a text response.")
+    
+    user_input = input("\n🤔 Do you want to test voice recording with response? (y/n): ").lower().strip()
+    
+    if user_input == 'y' or user_input == 'yes':
+        print("\n🎙️  Speak now (I'll listen for 10 seconds max)...")
         
-        # Test transcription
-        print("\n🧠 Testing speech transcription...")
-        transcription_result = processor.process_voice(recording_result['file_path'])
+        recording_result = processor.record_audio(
+            duration=10, 
+            silence_timeout=2.0, 
+            voice_activated=True
+        )
         
-        if transcription_result['status'] == 'success':
-            print(f"✅ Transcription successful: '{transcription_result['transcribed_text']}'")
-            print(f"🎯 Confidence: {transcription_result['confidence']}")
+        if recording_result['status'] == 'success':
+            print(f"✅ Recording successful!")
+            print(f"📁 File: {recording_result['file_path']}")
+            print(f"⏱️  Duration: {recording_result['duration']:.1f}s")
+            print(f"🔊 Voice activated: {recording_result['voice_activated']}")
+            
+            # Process with response generation
+            print("\n🧠 Processing voice and generating response...")
+            response_result = processor.process_voice_with_response(recording_result['file_path'])
+            
+            if response_result['status'] == 'success':
+                print(f"✅ Processing successful!")
+                print(f"🎤 You said: '{response_result['transcription']['text']}'")
+                print(f"🎯 Intent: {response_result['processed_text']['intent']['primary_intent']}")
+                print(f"💬 Response: {response_result['response']['response']}")
+                print(f"🔊 Voice response: {response_result['voice_response']}")
+                
+                # Ask if user wants to hear the response
+                speak_input = input("\n🤔 Do you want to hear the voice response? (y/n): ").lower().strip()
+                if speak_input == 'y' or speak_input == 'yes':
+                    processor.speak_response(response_result['voice_response'])
+                
+            else:
+                print(f"❌ Processing failed: {response_result['error']}")
+            
+            # Clean up
+            if os.path.exists(recording_result['file_path']):
+                os.remove(recording_result['file_path'])
+                print("🧹 Temporary file cleaned up")
         else:
-            print(f"❌ Transcription failed: {transcription_result['error']}")
-        
-        # Clean up
-        if os.path.exists(recording_result['file_path']):
-            os.remove(recording_result['file_path'])
-            print("🧹 Temporary file cleaned up")
+            print(f"❌ Recording failed: {recording_result['error']}")
     else:
-        print(f"❌ Recording failed: {recording_result['error']}")
+        print("\n⏭️  Skipping voice recording test.")
     
-    # Test 2: Manual recording (no voice activation)
-    print("\n📝 Test 2: Manual recording (5s fixed duration)")
-    print("💡 This test will record immediately for 5 seconds...")
+    # Test 3: Manual recording (no voice activation)
+    print("\n📝 Test 3: Manual recording (5s fixed duration)")
+    print("💡 This test will record immediately for 5 seconds.")
     
-    recording_result2 = processor.record_audio(
-        duration=5, 
-        voice_activated=False
-    )
+    user_input = input("\n🤔 Do you want to test manual recording? (y/n): ").lower().strip()
     
-    if recording_result2['status'] == 'success':
-        print(f"✅ Manual recording successful!")
-        print(f"📁 File: {recording_result2['file_path']}")
-        print(f"⏱️  Duration: {recording_result2['duration']:.1f}s")
+    if user_input == 'y' or user_input == 'yes':
+        print("\n🎙️  Recording now for 5 seconds...")
         
-        # Clean up
-        if os.path.exists(recording_result2['file_path']):
-            os.remove(recording_result2['file_path'])
-            print("🧹 Temporary file cleaned up")
+        recording_result2 = processor.record_audio(
+            duration=5, 
+            voice_activated=False
+        )
+        
+        if recording_result2['status'] == 'success':
+            print(f"✅ Manual recording successful!")
+            print(f"📁 File: {recording_result2['file_path']}")
+            print(f"⏱️  Duration: {recording_result2['duration']:.1f}s")
+            
+            # Clean up
+            if os.path.exists(recording_result2['file_path']):
+                os.remove(recording_result2['file_path'])
+                print("🧹 Temporary file cleaned up")
+        else:
+            print(f"❌ Manual recording failed: {recording_result2['error']}")
     else:
-        print(f"❌ Manual recording failed: {recording_result2['error']}")
+        print("\n⏭️  Skipping manual recording test.")
     
     print("\n🎉 Enhanced voice processor testing complete!")
-    print("\n📋 Summary of Improvements:")
-    print("• ✅ Voice-activated recording (starts when you speak)")
-    print("• ✅ Silence detection (stops when you stop speaking)")
-    print("• ✅ Longer recording duration (up to 15s by default)")
-    print("• ✅ Real-time feedback during recording")
-    print("• ✅ Enhanced recording statistics and metadata")
+    print("\n📋 Summary of New Features:")
+    print("• ✅ Interactive voice chat with voice responses")
+    print("• ✅ Voice-to-text processing with response generation")
+    print("• ✅ Text-to-speech functionality")
+    print("• ✅ Integration with text processor and response generator")
+    print("• ✅ User-friendly interactive testing")
+    print("• ✅ Enhanced recording with voice activation and silence detection")
 
 if __name__ == "__main__":
     test_voice_processor()

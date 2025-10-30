@@ -1,0 +1,410 @@
+{
+  "university": "Karnavati University",
+  "schools": [
+    {
+      "name": "UID (Design)",
+      "departments": [
+        {
+          "name": "Department of Fashion & Lifestyle",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Fashion Design Technology",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Fashion Communication & Styling",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "creative_writing_test": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Apparel Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true
+              }
+            },
+            {
+              "name": "M.Des. Fashion Design",
+              "duration": {
+                "years": 2,
+                "semesters": 4,
+                "total_credits": 80
+              },
+              "eligibility": {
+                "education": "B.Design in Fashion Design or related field with minimum 50% marks",
+                "subjects": ["Fashion Design", "Textile Design", "Apparel Design"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test / CEED",
+                "portfolio_required": true,
+                "interview_required": true,
+                "experience_preferred": "1-2 years relevant experience preferred"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Department of Communication Design",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Communication Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "creative_test": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Film & Video Communication",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "storytelling_test": true
+              }
+            },
+            {
+              "name": "M.Des. Visual Experiential Design",
+              "duration": {
+                "years": 2,
+                "semesters": 4,
+                "total_credits": 80
+              },
+              "eligibility": {
+                "education": "B.Design in Communication Design or related field with minimum 50% marks",
+                "subjects": ["Communication Design", "Visual Design", "UX/UI Design"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test / CEED",
+                "portfolio_required": true,
+                "interview_required": true,
+                "experience_preferred": "1-2 years relevant experience preferred"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Department of Industrial Design",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Product Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Science stream preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "technical_aptitude": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Transportation & Mobility Design (2024-25)",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Science stream preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "technical_aptitude": true
+              }
+            },
+            {
+              "name": "M.Des. Industrial Design",
+              "duration": {
+                "years": 2,
+                "semesters": 4,
+                "total_credits": 80
+              },
+              "eligibility": {
+                "education": "B.Design in Industrial Design or related field with minimum 50% marks",
+                "subjects": ["Industrial Design", "Product Design", "Engineering Design"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test / CEED",
+                "portfolio_required": true,
+                "interview_required": true,
+                "experience_preferred": "1-2 years relevant experience preferred"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Department of Animation & Digital Media",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Animation & Visual Effects",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "storyboarding_test": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Game Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Computer Science preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "logical_reasoning": true,
+                "creativity_test": true
+              }
+            },
+            {
+              "name": "M.Des. Immersive and Interactive Media Design",
+              "duration": {
+                "years": 2,
+                "semesters": 4,
+                "total_credits": 80
+              },
+              "eligibility": {
+                "education": "B.Design in Animation/Game Design or related field with minimum 50% marks",
+                "subjects": ["Animation", "Game Design", "Interactive Media"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test / CEED",
+                "portfolio_required": true,
+                "interview_required": true,
+                "experience_preferred": "1-2 years relevant experience preferred"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Department of Interior Design",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Interior Architecture Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Mathematics preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "spatial_reasoning": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Spatial Experience Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Mathematics preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "spatial_reasoning": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Furniture & Interior Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Mathematics preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "drawing_test": true,
+                "spatial_reasoning": true
+              }
+            },
+            {
+              "name": "M.Des. Interior & Experience Design",
+              "duration": {
+                "years": 2,
+                "semesters": 4,
+                "total_credits": 80
+              },
+              "eligibility": {
+                "education": "B.Design in Interior Design or related field with minimum 50% marks",
+                "subjects": ["Interior Design", "Architecture", "Spatial Design"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test / CEED",
+                "portfolio_required": true,
+                "interview_required": true,
+                "experience_preferred": "1-2 years relevant experience preferred"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Department of Global Design Program",
+          "programs": [
+            {
+              "name": "B.Design (Hons.) Interaction Design",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream", "Computer Science preferred"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "logical_reasoning": true,
+                "usability_test": true
+              }
+            },
+            {
+              "name": "B.Design (Hons.) Global Design Programme",
+              "duration": {
+                "years": 4,
+                "semesters": 8,
+                "total_credits": 160
+              },
+              "eligibility": {
+                "education": "10+2 with minimum 50% marks",
+                "subjects": ["Any stream"],
+                "age_limit": "No age limit",
+                "entrance_exam": "UID Entrance Test",
+                "portfolio_required": false,
+                "interview_required": true,
+                "aptitude_test": true,
+                "global_awareness_test": true,
+                "cultural_understanding": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UIM (Management)",
+      "departments": []
+    },
+    {
+      "name": "UWSL (Law)",
+      "departments": []
+    },
+    {
+      "name": "USLM (Liberal Arts & Mass Communication)",
+      "departments": []
+    },
+    {
+      "name": "UIT (Institute of Technology)",
+      "departments": []
+    },
+    {
+      "name": "KSD (Dentistry)",
+      "departments": []
+    },
+    {
+      "name": "Karnavati School of Research",
+      "departments": []
+    }
+  ]
+}

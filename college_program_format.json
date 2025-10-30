@@ -1,0 +1,283 @@
+{
+  "university": {
+    "name": "Karnavati University",
+    "established_year": 2000,
+    "location": "Gandhinagar, Gujarat, India",
+    "accreditation": ["UGC", "AICTE", "NBA"],
+    "website": "https://karnavatiuniversity.edu.in",
+    "contact": {
+      "phone": "+91-79-6674-7000",
+      "email": "info@karnavatiuniversity.edu.in",
+      "address": "Uvarsad, Gandhinagar - 382422, Gujarat, India"
+    },
+    "schools": [
+      {
+        "name": "UID (Design)",
+        "code": "UID",
+        "established_year": 2000,
+        "dean": {
+          "name": "",
+          "qualification": "",
+          "experience_years": 0,
+          "email": "",
+          "phone": ""
+        },
+        "description": "Unitedworld Institute of Design offers comprehensive design education with focus on innovation and creativity",
+        "facilities": [
+          "Design Studios",
+          "Computer Labs",
+          "Workshops",
+          "Library",
+          "Exhibition Halls",
+          "Material Labs"
+        ],
+        "departments": [
+          {
+            "name": "Department of Fashion & Lifestyle",
+            "code": "DFL",
+            "head": {
+              "name": "",
+              "qualification": "",
+              "experience_years": 0,
+              "email": "",
+              "phone": ""
+            },
+            "description": "Focus on fashion design, styling, and lifestyle products",
+            "faculty_count": 15,
+            "student_capacity": 300,
+            "programs": [
+              {
+                "name": "B.Design (Hons.) Fashion Design Technology",
+                "code": "BFD-HONS",
+                "degree_type": "Bachelor's",
+                "duration": {
+                  "years": 4,
+                  "semesters": 8,
+                  "total_credits": 160
+                },
+                "eligibility": {
+                  "education": "10+2 with minimum 50% marks",
+                  "subjects": ["Any stream"],
+                  "age_limit": "No age limit",
+                  "entrance_exam": "UID Entrance Test / NID / NIFT",
+                  "portfolio_required": true,
+                  "interview_required": true
+                },
+                "curriculum": {
+                  "foundation_year": true,
+                  "specializations": ["Fashion Design", "Textile Design", "Apparel Technology"],
+                  "core_subjects": [
+                    "Design Fundamentals",
+                    "Fashion Illustration",
+                    "Pattern Making",
+                    "Garment Construction",
+                    "Textile Science",
+                    "Fashion History",
+                    "CAD for Fashion",
+                    "Merchandising"
+                  ],
+                  "elective_subjects": [
+                    "Sustainable Fashion",
+                    "Fashion Photography",
+                    "Accessory Design",
+                    "Fashion Business"
+                  ],
+                  "industry_projects": 4,
+                  "internship_duration": "6 months"
+                },
+                "fees": {
+                  "tuition_fee_per_year": 350000,
+                  "registration_fee": 25000,
+                  "exam_fee_per_semester": 10000,
+                  "library_fee": 5000,
+                  "lab_fee": 15000,
+                  "hostel_fee_per_year": 120000,
+                  "other_fees": ["Uniform", "Materials", "Field trips"],
+                  "scholarships_available": true,
+                  "scholarship_details": "Merit-based, Need-based, Sports quota"
+                },
+                "career_prospects": {
+                  "job_roles": [
+                    "Fashion Designer",
+                    "Fashion Illustrator",
+                    "Pattern Maker",
+                    "Merchandiser",
+                    "Fashion Stylist",
+                    "Costume Designer"
+                  ],
+                  "industries": [
+                    "Fashion Houses",
+                    "Retail Brands",
+                    "Textile Industry",
+                    "Entertainment Industry",
+                    "Startups"
+                  ],
+                  "average_salary_range": "3-8 LPA",
+                  "placement_rate": "85%",
+                  "top_recruiters": [
+                    "FabIndia",
+                    "Raymond",
+                    "Aditya Birla Fashion",
+                    "Lifestyle",
+                    "Future Group"
+                  ]
+                },
+                "infrastructure": {
+                  "dedicated_studios": true,
+                  "computer_labs": true,
+                  "workshop_access": true,
+                  "library_access": true,
+                  "exhibition_space": true,
+                  "material_lab": true
+                },
+                "admission_process": {
+                  "application_start_date": "January",
+                  "application_deadline": "June",
+                  "entrance_test_date": "July",
+                  "interview_dates": "July-August",
+                  "session_start": "August",
+                  "application_fee": 1500
+                },
+                "contact": {
+                  "program_coordinator": "",
+                  "email": "",
+                  "phone": "",
+                  "office_location": ""
+                },
+                "accreditation": ["UGC", "AICTE"],
+                "ranking": {
+                  "national_rank": 15,
+                  "state_rank": 3,
+                  "industry_recognition": "High"
+                },
+                "unique_features": [
+                  "Industry-integrated curriculum",
+                  "International exchange programs",
+                  "Guest lectures by industry experts",
+                  "Annual fashion show",
+                  "Startup incubation support"
+                ],
+                "status": "active",
+                "last_updated": "2025-09-26"
+              },
+              {
+                "name": "B.Design (Hons.) Fashion Communication & Styling",
+                "code": "BFCS-HONS",
+                "degree_type": "Bachelor's",
+                "duration": {
+                  "years": 4,
+                  "semesters": 8,
+                  "total_credits": 160
+                },
+                "eligibility": {
+                  "education": "10+2 with minimum 50% marks",
+                  "subjects": ["Any stream"],
+                  "age_limit": "No age limit",
+                  "entrance_exam": "UID Entrance Test / NID / NIFT",
+                  "portfolio_required": true,
+                  "interview_required": true
+                },
+                "curriculum": {
+                  "foundation_year": true,
+                  "specializations": ["Fashion Communication", "Styling", "Visual Merchandising"],
+                  "core_subjects": [
+                    "Communication Design",
+                    "Fashion Styling",
+                    "Visual Merchandising",
+                    "Fashion Photography",
+                    "Trend Forecasting",
+                    "Brand Management",
+                    "Digital Media",
+                    "Fashion Journalism"
+                  ],
+                  "elective_subjects": [
+                    "Event Management",
+                    "Social Media Marketing",
+                    "Fashion PR",
+                    "Creative Direction"
+                  ],
+                  "industry_projects": 4,
+                  "internship_duration": "6 months"
+                },
+                "fees": {
+                  "tuition_fee_per_year": 350000,
+                  "registration_fee": 25000,
+                  "exam_fee_per_semester": 10000,
+                  "library_fee": 5000,
+                  "lab_fee": 15000,
+                  "hostel_fee_per_year": 120000,
+                  "other_fees": ["Equipment", "Software", "Field trips"],
+                  "scholarships_available": true,
+                  "scholarship_details": "Merit-based, Need-based, Sports quota"
+                },
+                "career_prospects": {
+                  "job_roles": [
+                    "Fashion Stylist",
+                    "Visual Merchandiser",
+                    "Fashion Photographer",
+                    "Fashion Journalist",
+                    "Brand Manager",
+                    "Creative Director"
+                  ],
+                  "industries": [
+                    "Fashion Media",
+                    "Retail",
+                    "Advertising",
+                    "E-commerce",
+                    "Entertainment"
+                  ],
+                  "average_salary_range": "3-10 LPA",
+                  "placement_rate": "90%",
+                  "top_recruiters": [
+                    "Vogue",
+                    "Elle",
+                    "Amazon Fashion",
+                    "Myntra",
+                    "Times Group"
+                  ]
+                },
+                "infrastructure": {
+                  "dedicated_studios": true,
+                  "photography_studio": true,
+                  "computer_labs": true,
+                  "library_access": true,
+                  "exhibition_space": true,
+                  "material_lab": true
+                },
+                "admission_process": {
+                  "application_start_date": "January",
+                  "application_deadline": "June",
+                  "entrance_test_date": "July",
+                  "interview_dates": "July-August",
+                  "session_start": "August",
+                  "application_fee": 1500
+                },
+                "contact": {
+                  "program_coordinator": "",
+                  "email": "",
+                  "phone": "",
+                  "office_location": ""
+                },
+                "accreditation": ["UGC", "AICTE"],
+                "ranking": {
+                  "national_rank": 12,
+                  "state_rank": 2,
+                  "industry_recognition": "High"
+                },
+                "unique_features": [
+                  "Industry-integrated curriculum",
+                  "International exchange programs",
+                  "Guest lectures by industry experts",
+                  "Annual fashion show",
+                  "Media lab access"
+                ],
+                "status": "active",
+                "last_updated": "2025-09-26"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

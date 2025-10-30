@@ -70,6 +70,16 @@ class TextProcessor:
             
             self.logger.info(f"✅ Text processing complete")
             
+            # Format response context
+            response_context = self.format_response_context({
+                'translated_text': translated_text,
+                'input_type': input_type,
+                'intent': intent,
+                'entities': entities,
+                'features': text_features,
+                'detected_language': language
+            })
+            
             return {
                 'original_text': text,
                 'cleaned_text': cleaned_text,
@@ -79,6 +89,7 @@ class TextProcessor:
                 'input_type': input_type,
                 'entities': entities,
                 'intent': intent,
+                'response_context': response_context,
                 'timestamp': datetime.now().isoformat()
             }
             
@@ -202,8 +213,16 @@ class TextProcessor:
             'context': 'campus_assistant'
         }
         
+        # Check for greetings first (highest priority)
+        greeting_patterns = ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening']
+        if any(greeting in text.lower() for greeting in greeting_patterns):
+            intent['primary_intent'] = 'greeting'
+            intent['confidence'] = 0.95
+            intent['sub_intents'] = ['welcome', 'introduction']
+            return intent
+        
         # Campus-related intents
-        if any(keyword in text for keyword in ['library', 'book', 'study']):
+        elif any(keyword in text for keyword in ['library', 'book', 'study']):
             intent['primary_intent'] = 'library_inquiry'
             intent['confidence'] = 0.8
             intent['sub_intents'] = ['location', 'resources']
@@ -213,7 +232,7 @@ class TextProcessor:
             intent['confidence'] = 0.8
             intent['sub_intents'] = ['schedule', 'information']
         
-        elif any(keyword in text for keyword in ['event', 'club', 'activity']):
+        elif any(keyword in text for keyword in ['event', 'club', 'activity', 'activities', 'events']):
             intent['primary_intent'] = 'event_inquiry'
             intent['confidence'] = 0.7
             intent['sub_intents'] = ['schedule', 'participation']
@@ -249,10 +268,16 @@ class TextProcessor:
 
 # Test function
 def test_text_processor():
-    """Test the text processor functionality"""
+    """Test the text processor functionality with user input"""
     processor = TextProcessor()
     
-    test_texts = [
+    print("🧠 Interactive Text Processor Testing")
+    print("=" * 50)
+    print("💡 You can type your own text to test the processing capabilities!")
+    print("🛑 Type 'quit' or 'exit' to stop testing\n")
+    
+    # Predefined test examples for demonstration
+    test_examples = [
         "Where is the library located?",
         "What time does the cafeteria close?",
         "Help me find my classroom",
@@ -260,18 +285,79 @@ def test_text_processor():
         "Bonjour, comment ça va?"  # French test
     ]
     
-    for text in test_texts:
-        print(f"\n📝 Testing: '{text}'")
-        result = processor.process_text(text)
-        
-        if 'error' not in result:
-            print(f"✅ Language: {result['detected_language']}")
-            print(f"✅ Translated: {result['translated_text']}")
-            print(f"✅ Type: {result['input_type']}")
-            print(f"✅ Intent: {result['intent']['primary_intent']}")
-            print(f"✅ Entities: {len(result['entities'])} found")
-        else:
-            print(f"❌ Error: {result['error']}")
+    print("📝 Predefined Test Examples (you can try these or type your own):")
+    for i, example in enumerate(test_examples, 1):
+        print(f"   {i}. '{example}'")
+    print()
+    
+    try:
+        while True:
+            # Get user input
+            user_input = input("🤔 Enter text to process (or 'quit' to exit): ").strip()
+            
+            # Check if user wants to quit
+            if user_input.lower() in ['quit', 'exit', 'q']:
+                print("👋 Goodbye!")
+                break
+            
+            # Check if input is empty
+            if not user_input:
+                print("⚠️ Please enter some text to process.")
+                continue
+            
+            print(f"\n📝 Processing: '{user_input}'")
+            print("-" * 50)
+            
+            # Process the text
+            result = processor.process_text(user_input)
+            
+            if 'error' not in result:
+                print(f"✅ Original Text: '{result['original_text']}'")
+                print(f"✅ Cleaned Text: '{result['cleaned_text']}'")
+                print(f"✅ Detected Language: {result['detected_language']}")
+                print(f"✅ Translated Text: '{result['translated_text']}'")
+                print(f"✅ Input Type: {result['input_type']}")
+                print(f"✅ Primary Intent: {result['intent']['primary_intent']}")
+                print(f"✅ Intent Confidence: {result['intent']['confidence']:.2f}")
+                
+                # Show entities if any
+                if result['entities']:
+                    print(f"✅ Entities Found ({len(result['entities'])}):")
+                    for entity in result['entities']:
+                        print(f"   • {entity['type']}: '{entity['value']}' (context: {entity['context']})")
+                else:
+                    print("✅ No entities found")
+                
+                # Show text features
+                features = result['features']
+                print(f"✅ Text Features:")
+                print(f"   • Length: {features['length']}")
+                print(f"   • Word Count: {features['word_count']}")
+                print(f"   • Sentence Count: {features['sentence_count']}")
+                print(f"   • Has Campus Keywords: {features['has_campus_keywords']}")
+                print(f"   • Has Numbers: {features['has_numbers']}")
+                print(f"   • Has Question Marks: {features['has_question_marks']}")
+                print(f"   • Has Exclamation: {features['has_exclamation']}")
+                print(f"   • Is Uppercase: {features['is_uppercase']}")
+                print(f"   • Is Lowercase: {features['is_lowercase']}")
+                
+                # Show response context
+                context = result['response_context']
+                print(f"✅ Response Context:")
+                print(f"   • Clean Input: '{context['clean_input']}'")
+                print(f"   • Intent: {context['intent']['primary_intent']}")
+                print(f"   • Input Type: {context['input_type']}")
+                print(f"   • Entities: {len(context['entities'])} found")
+                
+            else:
+                print(f"❌ Error processing text: {result['error']}")
+            
+            print("\n" + "=" * 50 + "\n")
+            
+    except KeyboardInterrupt:
+        print("\n🛑 Text processor testing stopped by user")
+    except Exception as e:
+        print(f"\n❌ Error in text processor testing: {e}")
 
 if __name__ == "__main__":
     test_text_processor()
